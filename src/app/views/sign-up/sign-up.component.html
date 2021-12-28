@@ -1,0 +1,43 @@
+<form class="mt-2 container" #contactForm='ngForm' (ngSubmit)="signUp(contactForm.value)">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" ngModel name="name" #name='ngModel' required placeholder=" Enter Your Name" minlength="3">
+        <div class="error " *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors?.['required']">*Username is required*</div>
+            <div *ngIf="name.errors?.['minlength']">*Username minlength is 3*</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="amail" placeholder="Enter Your Email" ngModel name="email" #email="ngModel" required email (focus)="changeEmail()">
+        <div class="error " *ngIf="email.touched && email.invalid">
+            <div *ngIf="email.errors?.['required']">*Email is required*</div>
+            <div *ngIf="email.errors?.['email']">*Invalid email*</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="text" class="form-control" id="age" ngModel name="age" #age='ngModel' required placeholder=" Enter Your Age" (focus)="changeAge()">
+        <div class="error " *ngIf="age.touched && age.invalid">
+            <div *ngIf="age.errors?.['required']">*Username is required*</div>
+            <!-- <div *ngIf="age.errors?.['minlength']">*Username minlength is 3*</div> -->
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" ngModel name="phone" #phone='ngModel' required placeholder=" Phone number">
+        <div class="error " *ngIf="phone.touched && phone.invalid">
+            <div *ngIf="phone.errors?.['required']">*Username is required*</div>
+            <div *ngIf="phone.errors?.['minlength']">*Username minlength is 3*</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="pass" class="form-label">Password</label>
+        <input type="password" class="form-control" id="pass" ngModel name="password" #password='ngModel' required placeholder=" Enter Your Password" minlength="6">
+        <div class="error " *ngIf="password.touched && password.invalid">
+            <div *ngIf="password.errors?.['required']">*Password is required*</div>
+            <div *ngIf="password.errors?.['minlength']">*Password minlength is 6*</div>
+        </div>
+    </div>
+    <button type="submit " class="btn btn-primary ">Sign up</button>
+</form>
