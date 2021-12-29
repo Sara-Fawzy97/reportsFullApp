@@ -1,0 +1,15 @@
+<h5>Update </h5>
+<form class="mt-2 container" #contactForm='ngForm' (ngSubmit)="updateNews(contactForm.value)">
+
+    <h4>{{news.title}}</h4>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" ngModel name="description" #description='ngModel' required placeholder=" News Description ">
+        <div class="error " *ngIf="description.touched && description.invalid">
+            <div *ngIf="description.errors?.['required']">*Description is required*</div>
+        </div>
+    </div>
+
+    <button type="submit " class="btn btn-primary ">Add</button>
+</form>

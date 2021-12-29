@@ -5,8 +5,10 @@
       </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" routerLink="">Login</a>
-                <a class="nav-link active" aria-current="page" routerLink="/signup">Sign up</a>
+                <a class="nav-link active" aria-current="page" routerLink="" *ngIf="!isLoggedIn">Login</a>
+                <a class="nav-link active" aria-current="page" routerLink="/signup" *ngIf="!isLoggedIn">Sign up</a>
+                <a class="nav-link active" aria-current="page" routerLink="" *ngIf="isLoggedIn" (click)='logOut()'>Logout</a>
+                <a class="nav-link active" aria-current="page" routerLink="/addnew" *ngIf="isLoggedIn">Add News</a>
 
             </div>
         </div>

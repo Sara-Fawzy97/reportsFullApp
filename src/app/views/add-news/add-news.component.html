@@ -1,0 +1,19 @@
+<form class="mt-2 container" #contactForm='ngForm' (ngSubmit)="addNew(contactForm.value)">
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="New title" ngModel name="title" #title="ngModel" required>
+        <div class="error " *ngIf="title.touched && title.invalid">
+            <div *ngIf="title.errors?.['required']">*Title is required*</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Dexcription</label>
+        <input type="text" class="form-control" id="description" ngModel name="description" #description='ngModel' required placeholder=" News Description ">
+        <div class="error " *ngIf="description.touched && description.invalid">
+            <div *ngIf="description.errors?.['required']">*Description is required*</div>
+        </div>
+    </div>
+
+    <button type="submit " class="btn btn-primary ">Add</button>
+</form>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Reporter } from '../interfaces/reporterInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,19 @@ export class AuthService {
   logIn(credentials:any){
     return this.http.post(this.url+'login',credentials)
   }
+
+  getToken(){
+    return localStorage.getItem('token')
+  }
+
+  //to logout
+logout(){
+  return this.http.delete(this.url+'logout')
+}
+
+//to get user
+getProfile(){
+return this.http.get<Reporter>(this.url+"profile")
+}
 }
 

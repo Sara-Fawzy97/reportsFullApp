@@ -1,1 +1,10 @@
-<p>profile works!</p>
+<p> Welcome {{reporter.name}}</p>
+<div class="card" style="width: 18rem;" *ngFor="let new of news ;let i=index">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+        <h5 class="card-title">{{new.title}}</h5>
+        <p class="card-text">{{new.description}}</p>
+        <a class="btn btn-primary" routerLink="/update/{{new._id}}">Update</a>
+        <a class="btn btn-danger" (click)="deleteNew(new._id,i)">Delete</a>
+    </div>
+</div>
